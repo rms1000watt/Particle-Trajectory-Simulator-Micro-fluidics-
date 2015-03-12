@@ -6,8 +6,8 @@
 	},
 
 	"file_locations":{
-		"vectorFieldFile":"example/Basic DEP/field_data.csv",
-		"particleFile":"example/Basic DEP/particle_data.csv"
+		"vectorFieldFile":"field_data.csv",
+		"particleFile":"particle_data.csv"
 	},
 
 	"plot_data":{
