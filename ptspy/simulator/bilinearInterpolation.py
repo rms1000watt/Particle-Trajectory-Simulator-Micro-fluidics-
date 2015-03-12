@@ -9,7 +9,7 @@ class BilinearInterpolation:
                     velocityTranspose=array([0,0]),gradESquaredTranspose=array([0,0]),repeatX=True,repeatY=False):
         """Bilinear Interpolation class for bilinear interpolation including averageVelocity
         
-        Attributes:
+        Args:
             X : X object for grid points
             Y : Y object for grid points
             coordinates : np.array([[x1,x2,x3,...],[y1,y2,y3,...]])

@@ -33,9 +33,12 @@ Alternatively:
 	1. Download zip file
 	2. Unzip file in a known location
 	3. Go into your Terminal and change directory to where the project was unzipped
-	4. $ cd Documents/Libraries/Particle-Trajectory-Simulator-Microfluidics-master
-	5. Install the ptspy library
-	6. $ sudo python setup.py install
+	4. Install the ptspy library
+
+'''
+$ cd Documents/Libraries/Particle-Trajectory-Simulator-Microfluidics-master
+$ sudo python setup.py install
+'''
 
 Usage
 =====
@@ -44,9 +47,12 @@ This project was designed for the command line. Follow this process for the exam
 
 Process:
 	1. Go into your Terminal and change directory to the project in the example folder
-	2. $ cd "example/Basic DEP
-	3. Run the example code and pass the location of the config.json
-	4. $ python basic_dep.py config.json
+	2. Run the example code and pass the location of the config.json
+
+'''
+$ cd "example/Basic DEP
+$ python basic_dep.py config.json
+'''
 	
 You can change the config.json and particle_data.csv files as you please.
 

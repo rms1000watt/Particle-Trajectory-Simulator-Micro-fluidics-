@@ -4,22 +4,19 @@ from ptspy.simulator.bilinearInterpolation import BilinearInterpolation
 from ptspy.simulator.trilinearInterpolation import TrilinearInterpolation
 
 class RungeKuttaIntegrator:
-    """
-    2nd Order Runge Kutta Integrator for specific Objects (Tracker,Particle,ParticleAdvanced)
+    """2nd Order Runge Kutta Integrator for specific Objects (Tracker,Particle,ParticleAdvanced)
     
-    Functions
-    ---------
-    tracker : Tracker object with only velocity interpolation
-    particle : Particle object with stokes and gravitational forces
-    particleAdvanced : Particle object with stokes, gravitational, and buoyant forces
+    Methods:
+        tracker : Tracker object with only velocity interpolation
+        particle : Particle object with stokes and gravitational forces
+        particleAdvanced : Particle object with stokes, gravitational, and buoyant forces
     
-    Parameters
-    ----------
-    X : X object data
-    Y : Y object data
-    coordinates : np.array([[x1,x2,x3,...],[y1,y2,y3,...]])
-    velocityTranspose : np.array([[x1,y1],[x2,y2],[x3,y3]...])
-    dt : time step value
+    Attributes:        
+        X : X object data
+        Y : Y object data
+        coordinates : np.array([[x1,x2,x3,...],[y1,y2,y3,...]])
+        velocityTranspose : np.array([[x1,y1],[x2,y2],[x3,y3]...])
+        dt : time step value
     """
     def __init__(self,X,Y,Z=array([0,0,0]),coordinates=array([0,0]),velocityTranspose=array([0,0]),dt=.1,gradESquaredTranspose=array([0,0]),fluid=1,forces=1,physConsts=1,repeatX=True,repeatY=False):
         self.dt = dt
@@ -32,9 +29,7 @@ class RungeKuttaIntegrator:
         self.physConsts = physConsts
         
     def tracker(self,tracker):
-        """
-        Does not include any force calculations, only velocity tracing
-        """
+        """Does not include any force calculations, only velocity tracing"""
         #avgVel = self.BI.averageVelocity(tracker.position)
         tracker.position = self.BI.checkPointVsBoundaries(point=tracker.position)
         nearestIndexes = self.BI.buildNearestIndexes(tracker.position)
@@ -49,14 +44,12 @@ class RungeKuttaIntegrator:
         return tracker.position+avgVelTmp*self.dt
 
     def particle(self,particle):
-        """
-        2nd order Runge-Kutta integrator for a particle
+        """2nd order Runge-Kutta integrator for a particle
         
-        Parameters
-        ----------
-        particle : Particle object
-        fluid : Fluid object
-        forces : Forces object
+        Args:
+            particle : Particle object
+            fluid : Fluid object
+            forces : Forces object
         """
         radius = particle.radius
         mass = particle.mass
@@ -101,14 +94,12 @@ class RungeKuttaIntegrator:
         return chkPvsBnd(point=(particle.position+velocityTmp*dt),obj=particle)
         
     def particle3D(self,particle):
-        """
-        2nd order Runge-Kutta integrator for a particle
+        """2nd order Runge-Kutta integrator for a particle
         
-        Parameters
-        ----------
-        particle : Particle object
-        fluid : Fluid object
-        forces : Forces object
+        Args:
+            particle : Particle object
+            fluid : Fluid object
+            forces : Forces object
         """
         radius = particle.radius
         mass = particle.mass

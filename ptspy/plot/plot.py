@@ -69,8 +69,4 @@ class Plot:
             plt.ylabel("Y [m]")
             plt.grid()
             
-            quiver(X.quiver,Y.quiver,U.quiver,V.quiver)        
-        
-        
-    
-                
+            quiver(X.quiver,Y.quiver,U.quiver,V.quiver)                
