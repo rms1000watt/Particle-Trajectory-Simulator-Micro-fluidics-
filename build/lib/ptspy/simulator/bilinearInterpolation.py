@@ -7,8 +7,7 @@ from ptspy.physical.particle import Particle
 class BilinearInterpolation:
     def __init__(self,X=array([0,0]),Y=array([0,0]),coordinates=array([0,0]),
                     velocityTranspose=array([0,0]),gradESquaredTranspose=array([0,0]),repeatX=True,repeatY=False):
-        """
-        Bilinear Interpolation class for bilinear interpolation including averageVelocity
+        """Bilinear Interpolation class for bilinear interpolation including averageVelocity
         
         Attributes:
             X : X object for grid points
@@ -29,13 +28,11 @@ class BilinearInterpolation:
         #self.time = time
 
     def checkPointVsBoundaries(self,point=array([0,0]),obj=1):
-        """
-        Checks if point is within the boundaries for interpolation
+        """Checks if point is within the boundaries for interpolation
         
-        Parameters
-        ----------
-        point : numpy.array([x',y'])
-        obj : pass the Particle object so it can be repeated if it reaches the end of the channel
+        Args:
+            point : numpy.array([x',y'])
+            obj : pass the Particle object so it can be repeated if it reaches the end of the channel
         """        
         if point[0] > self.X.maxValue:
             if self.repeatX:
@@ -93,15 +90,13 @@ class BilinearInterpolation:
             return self.bilinearInterpolation(point,indexList,self.gradESquaredTranspose)
             
     def bilinearInterpolation(self,point,indexes,fieldTranspose):
-        """
-        Bilinear interpolation of a 2D field numpy.array([[x1,y1],[x2,y2],[x3,y3],...]) at point within a rectangular grid
+        """Bilinear interpolation of a 2D field numpy.array([[x1,y1],[x2,y2],[x3,y3],...]) at point within a rectangular grid
         
-        Parameters
-        ----------
-        point : numpy.array([x',y'])
-        indexes : indexes of nearest 4 points
-        coordinates : coordinates built from X and Y objects
-        velocityTranspose : transposed velocity build from U and V objects
+        Args:
+            point : numpy.array([x',y'])
+            indexes : indexes of nearest 4 points
+            coordinates : coordinates built from X and Y objects
+            velocityTranspose : transposed velocity build from U and V objects
         """
         x,y = point
         x1,x2 = self.coordinates[0][indexes[0]],self.coordinates[0][indexes[1]]
@@ -113,15 +108,13 @@ class BilinearInterpolation:
         return 1/((x2-x1)*(y2-y1))*(f11*(x2-x)*(y2-y)+f21*(x-x1)*(y2-y)+f12*(x2-x)*(y-y1)+f22*(x-x1)*(y-y1))
             
     def fixIndexes(self,ind1,ind2):
-        """
-        fixes indexes if they're equal to each other. (indexes need to be different so bilinear Interpolation works)
+        """Fixes indexes if they're equal to each other. (indexes need to be different so bilinear Interpolation works)
         
         Note : ind1 < ind2
         
-        Parameters
-        ----------
-        ind1 : first index (eg. indY1 or indX1)
-        ind2 : second index (eg. indY2 or indX2)
+        Args:        
+            ind1 : first index (eg. indY1 or indX1)
+            ind2 : second index (eg. indY2 or indX2)
         """
         if ind1 > 0:
             ind1 -= 1
@@ -129,70 +122,3 @@ class BilinearInterpolation:
             ind2 += 1
         return ind1,ind2
     
-#     def interpolation(self,pos,vel,fieldName='none'):
-#         indexes = self.buildNearestIndexes(pos)
-#         nearestPoints = self.buildNearestPoints(indexes)
-#         #coordinates = self.buildNearestCoordinates(indexes)
-#         fieldValues = self.buildNearestFieldValues(indexes,fieldName)
-#         wallCollision = self.checkWallCollision(fieldValues)
-#         if wallCollision:
-#             pass #pos,vel,fieldValues = fixPosVelField(pos,vel,nearestPoints,fieldValues)
-#         return self.bilinearInterpolation2(pos,nearestPoints,fieldValues)
-# 
-#     def buildNearestPoints(self,indexes):
-#         x0,x1 = self.coordinates[0][indexes[0]],self.coordinates[0][indexes[1]]
-#         y0,y1 = self.coordinates[1][indexes[1]],self.coordinates[1][indexes[2]]
-#         return array([x0,x1,y0,y1])        
-#         
-#     def buildNearestFieldValues(self,indexes,fieldName):
-#         fieldValues = []
-#         if fieldName == 'none':
-#             for i in range(5):
-#                 print 'no field was picked for interpolation:'  
-#                 print 'avgEField = interp(point=particle.position,indexList=nearestIndexes,fieldName=\'Efield\')'
-#         if fieldName == 'velocity':
-#             for ind, val in enumerate(indexes):
-#                 fieldValues.append(self.velocityTranspose[val])
-#         if fieldName == 'Efield':
-#             for ind, val in enumerate(indexes):
-#                 fieldValues.append(self.gradESquaredTranspose[val])
-#         return array(fieldValues)   
-#         
-#     def buildNearestCoordinates(self,indexes):
-#         coordinates = []
-#         for ind, val in enumerate(indexes):
-#             coordinates.append(self.coordinatesTranspose[val])
-#         return array(coordinates)
-#     
-#     def checkWallCollision(self,fieldValues):
-#         if isnan(fieldValues).any():
-#             return True
-#         else:
-#             return False
-#             
-#     def bilinearInterpolation2(self,pos,nearestPoints,fieldValues):
-#         x,y = pos
-#         x1,x2,y1,y2 = nearestPoints
-#         f11,f12,f21,f22 = fieldValues
-#         return 1/((x2-x1)*(y2-y1))*(f11*(x2-x)*(y2-y)+f21*(x-x1)*(y2-y)+f12*(x2-x)*(y-y1)+f22*(x-x1)*(y-y1))
-#     
-#     def fixPosVelField(self,pos,vel,nearestPoints,fieldValues):
-#         #dt = self.time.dt
-#         f00,f10,f01,f11 = fieldValues
-#         x0,x1,y0,y1 = nearestPoints
-#         xnudge, ynudge = self.X.gridSpacing/4.,self.Y.gridSpacing/4.
-#         if isnan(f10 and f11) and not isnan(f00 and f01):
-#             pos[0] = x0-xnudge
-#             vel[0] = 0
-#         if isnan(f10 and f00) and not isnan(f11 and f01):
-#             pos[1] = y1+ynudge
-#             vel[1] = 0
-#         if isnan(f01 and f00) and not isnan(f11 and f10):
-#             pos[0] = x1+xnudge
-#             vel[0] = 0
-#         if isnan(f01 and f11) and not isnan(f00 and f10):
-#             pos[0] = y0-ynudge
-#             vel[1] = 0
-#         if isnan(fieldValues).all():
-#             pos = pos - (vel*dt/2.)
-#         return pos,vel

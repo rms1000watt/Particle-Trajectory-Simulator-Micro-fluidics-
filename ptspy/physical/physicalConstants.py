@@ -1,4 +1,5 @@
 from numpy import array
+
 class PhysicalConstants:
     """
     Define physical constants (defaults to SI units)

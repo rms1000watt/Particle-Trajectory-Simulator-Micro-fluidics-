@@ -19,5 +19,5 @@ setup(name='ptspy',
             'License :: OSI Approved :: MIT License',
             'Programming Language :: Python :: 2.7',
         ],
-      install_requires = ['numpy']
+      install_requires = ['numpy','matplotlib']
       )
