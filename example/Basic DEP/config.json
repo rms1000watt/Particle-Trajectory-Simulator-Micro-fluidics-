@@ -1,0 +1,51 @@
+{
+	"config":{
+		"multiplyFieldX":3,
+		"repeatX":"False",
+		"repeatY":"False"
+	},
+
+	"file_locations":{
+		"vectorFieldFile":"example/Basic DEP/field_data.csv",
+		"particleFile":"example/Basic DEP/particle_data.csv"
+	},
+
+	"plot_data":{
+		"plotTrajectory":"True",
+		"plotFields":"False",
+		"scaleX":1,
+		"scaleY":0.5
+	},
+
+	"electrode_data":{
+		"voltageScale":5
+	},
+
+	"time_data":{
+		"start":0,
+		"stop":0.75,
+		"step":7.5e-4
+	},
+
+	"physicalConstants_data":{
+		"gravitationalAcceleration":[0,-9.8],
+		"boltzmannConstant":1.38e-23,
+		"vacuumPermittivity":8.85e-12
+	},
+
+	"forces_data":{
+		"includeGravitational":"False",
+		"includeBuoyant":"False",
+		"includeDEP":"True",
+		"includeStokes":"True"
+	},
+
+	"fluid_data":{
+		"density":1001,
+		"viscosity":0.001,
+		"relativePermittivity":81,
+		"name":"water",
+		"scaleX":1000,
+		"scaleY":1
+	}
+}
