@@ -51,7 +51,7 @@ Process:
 
 ::
 
-    $ cd "example/Basic DEP
+    $ cd "example/Basic DEP"
     $ python basic_dep.py config.json
 
 You can change the config.json and particle_data.csv files as you please.
