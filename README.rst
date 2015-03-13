@@ -30,12 +30,13 @@ Installing
 Do the standard git process.
 
 Alternatively:
-	1. Download zip file
-	2. Unzip file in a known location
-	3. Go into your Terminal and change directory to where the project was unzipped
-	4. Install the ptspy library
+1. Download zip file
+2. Unzip file in a known location
+3. Go into your Terminal and change directory to where the project was unzipped
+4. Install the ptspy library
 
 ::
+
     $ cd Documents/Libraries/Particle-Trajectory-Simulator-Microfluidics-master
     $ sudo python setup.py install
 
