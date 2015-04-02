@@ -14,7 +14,7 @@ Example code can be found in the "examples" folder.
 Requirements
 ============
 
-Python 2.7 (Haven't tested with other Python 2.X, but I assume it should be fine. However, most likely not compatible with Python 3.X.)
+Only tested with Python 2.7
 
 Python Libraries:
 	numpy
