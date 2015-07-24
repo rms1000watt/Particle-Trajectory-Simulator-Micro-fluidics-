@@ -64,6 +64,6 @@ Vector fields must first be generated for this simulator to work. COMSOL was use
 Acknowledgements
 ===========
 
-This simulator was developed at UC Irvine for Microfluidic device simulation in the Micro Integrated Devices and Systems (MIDAS) Lab.
+This simulator was developed at UC Irvine for Microfluidic device simulation in the Micro Integrated Devices and Systems (MIDaS) Lab.
 
 As seen in: http://scitation.aip.org/content/aip/journal/bmf/8/3/10.1063/1.4880244
