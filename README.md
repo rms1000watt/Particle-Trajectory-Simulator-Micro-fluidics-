@@ -1,11 +1,11 @@
-==============
-ptspy: Particle Trajectory Simulator for Python
-==============
+<hidden cmd="git push https://rms1000watt@github.com/rms1000watt/Particle-Trajectory-Simulator-Microfluidics.git master:master"/>
+
+# ptspy: Particle Trajectory Simulator for Python
 
 ![8 Particle Simulation](8-particles.png)
 
-Introduction
-============
+## Introduction
+
 
 This project simulates trajectories of micro-scale particles flowing through fluid and electric fields. The simulator was intended to study Stoke's and Dielectrophoresis forces acting on particles traversing microfluidic, biomedical devices. For instance, particles are separated based on their dielectric properties which would allow us to isolate cancer cells in the blood. 
 
@@ -13,8 +13,7 @@ This project was used during the design process of a microfluidic device to sign
 
 Example code can be found in the "examples" folder.
 
-Requirements
-============
+## Requirements
 
 Only tested with Python 2.7
 
@@ -26,8 +25,7 @@ Python Libraries:
 	json
 	argparse
 
-Installing 
-==========
+## Installing 
 
 Do the standard git process.
 
@@ -43,8 +41,7 @@ cd /path/to/Particle-Trajectory-Simulator-Microfluidics-master
 sudo python setup.py install
 ```
 
-Usage
-=====
+## Usage
 
 This project was designed for the command line. Follow this process for the example code.
 
@@ -60,13 +57,11 @@ python basic_dep.py config.json
 
 You can change the config.json and particle_data.csv files as you please.
 
-Notes
-=====
+## Notes
 
 Vector fields must first be generated for this simulator to work. COMSOL was used to generate and export vector fields in .csv format. You can see the example format with the example code.
 
-Acknowledgements
-===========
+## Acknowledgements
 
 This simulator was developed at UC Irvine for Microfluidic device simulation in the Micro Integrated Devices and Systems (MIDaS) Lab.
 
