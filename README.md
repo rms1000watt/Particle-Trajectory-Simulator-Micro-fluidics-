@@ -2,6 +2,8 @@
 ptspy: Particle Trajectory Simulator for Python
 ==============
 
+![8 Particle Simulation](8-particles.png)
+
 Introduction
 ============
 
@@ -35,10 +37,11 @@ Alternatively:
 3. Go into your Terminal and change directory to where the project was unzipped
 4. Install the ptspy library
 
-::
 
-    $ cd Documents/Libraries/Particle-Trajectory-Simulator-Microfluidics-master
-    $ sudo python setup.py install
+```
+cd /path/to/Particle-Trajectory-Simulator-Microfluidics-master
+sudo python setup.py install
+```
 
 Usage
 =====
@@ -49,10 +52,11 @@ Process:
 1. Go into your Terminal and change directory to the project in the example folder
 2. Run the example code and pass the location of the config.json
 
-::
 
-    $ cd "example/Basic DEP"
-    $ python basic_dep.py config.json
+```
+cd example/Basic\ DEP
+python basic_dep.py config.json
+```
 
 You can change the config.json and particle_data.csv files as you please.
 
